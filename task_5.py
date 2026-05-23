@@ -13,8 +13,16 @@ class XMLNode:
 
 
 def serialize(node):
-    attrs = ''.join(f' {key}="{value}"' for key, value in node.attributes.items())
-    children_serialized = ''.join(serialize(child) for child in node.children)
+    attrs = []
+    for key, value in node.attributes.items():
+        attrs.append(f' {key}="{value}"')
+    attrs_string = ''.join(attrs)
+    children_serialized = []
+    for child in node.children:
+        serialized_child = serialize(child)
+        children_serialized.append(serialized_child)
+    children_serialized_string = ''.join(children_serialized)
+
     return f'<{node.tag}{attrs}>{node.text}{children_serialized}</{node.tag}>'
 
 
