@@ -144,7 +144,7 @@ if __name__ == "__main__":
     serialized = serialize(deserialized)
 
     # Запись JSON в новый файл
-    output_filename = 'resourse/output.json'  # Укажите имя выходного файла
+    output_filename = 'resourse/output.json'  
     write_json_file(output_filename, serialized)
 
     print("\nСериализация JSON записана в ", output_filename)
