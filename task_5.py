@@ -2,7 +2,10 @@ class XMLNode:
     def __init__(self, tag, text='', attributes=None):
         self.tag = tag
         self.text = text
-        self.attributes = attributes if attributes is not None else {}
+        if attributes is not None:
+            self.attributes = attributes
+        else:
+            self.attributes = {}
         self.children = []
 
     def add_child(self, child):
